@@ -57,19 +57,19 @@ stages = ['''
 =========
 ''']
 end_of_game = False
-word_list = ["Banana"
-,"Elephant"
-,"Giraffe"
-,"Ice cream"
-,"Jellyfish"
-,"Kangaroo"
-,"Monkey"
-,"Octopus"
-,"Penguin"
-,"Strawberry"
-,"Watermelon"
-,"Xylophone"
-,"Zebra"]
+word_list = ["banana"
+,"elephant"
+,"giraffe"
+,"ice cream"
+,"jellyfish"
+,"kangaroo"
+,"monkey"
+,"octopus"
+,"penguin"
+,"strawberry"
+,"watermelon"
+,"xylophone"
+,"zebra"]
 chosen_word = random.choice(word_list)
 word_length = len(chosen_word)
 
