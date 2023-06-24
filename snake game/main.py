@@ -33,8 +33,8 @@ while game_on:
         my_snake.extend()
         score_board.inc_score()
     # Wall collision
-    if my_snake.head.xcor() > 280 or my_snake.head.xcor() < -280 or \
-            my_snake.head.ycor() > 280 or my_snake.head.ycor() < -280:
+    if my_snake.head.xcor() > 290 or my_snake.head.xcor() < -290 or \
+            my_snake.head.ycor() > 290 or my_snake.head.ycor() < -290:
         game_on = False
         score_board.game_over()
 
