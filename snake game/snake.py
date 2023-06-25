@@ -16,14 +16,14 @@ class Snake:
         self.head = self.snake_body[0]
 
     def create_snake(self):
-        for box in COORDINATE:
-            self.add_segment(box)
+        for position in COORDINATE:
+            self.add_segment(position)
 
-    def add_segment(self, box):
+    def add_segment(self, position):
         snake_obj = turtle.Turtle("square")
         snake_obj.penup()
         snake_obj.color("white")
-        snake_obj.goto(box)
+        snake_obj.goto(position)
         self.snake_body.append(snake_obj)
 
     def extend(self):
