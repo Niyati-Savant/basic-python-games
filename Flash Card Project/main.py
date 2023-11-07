@@ -13,41 +13,38 @@ except FileNotFoundError:
 else:
     word_list = word_frame.to_dict(orient="records")
 
+
 def next_card():
     global current_word
     current_word = choice(word_list)
     french_word = current_word["French"]
     canvas.itemconfig(flash_card, image=front_img)
-    canvas.itemconfig(lang_text, text="French",fill="black")
-    canvas.itemconfig(word_text, text=french_word,fill="black")
+    canvas.itemconfig(lang_text, text="French", fill="black")
+    canvas.itemconfig(word_text, text=french_word, fill="black")
     screen.after(3000, func=flip_card)
 
 
 def flip_card():
-    global current_word,flip_timer
+    global current_word, flip_timer
     screen.after_cancel(flip_timer)
     canvas.itemconfig(flash_card, image=back_img)
-    canvas.itemconfig(lang_text, text="English",fill="white")
-    canvas.itemconfig(word_text, text=current_word["English"],fill="white")
+    canvas.itemconfig(lang_text, text="English", fill="white")
+    canvas.itemconfig(word_text, text=current_word["English"], fill="white")
     flip_timer = screen.after(3000, func=flip_card)
 
 def know_word():
     global current_word
     word_list.remove(current_word)
     data = pandas.DataFrame(word_list)
-    data.to_csv("data/words_to_learn.csv",index=False)
-    # with open(file="words_to_learn.csv",mode='w') as file:
-
+    data.to_csv("data/words_to_learn.csv", index=False)
     next_card()
-
-
 
 
 screen = Tk()
 screen.title("Learn French")
 screen.config(background=BACKGROUND_COLOR, padx=50, pady=50)
 
-flip_timer = screen.after(3000,func=flip_card)
+flip_timer = screen.after(3000, func=flip_card)
 
 canvas = Canvas(width=800, height=526)
 front_img = PhotoImage(file="./images/card_front.png")
